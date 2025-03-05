@@ -57,6 +57,11 @@ def update(sno):
     todo = ToDo.query.filter_by(sno=sno).first()  
     return render_template('update.html', ToDo=todo)
 
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
 

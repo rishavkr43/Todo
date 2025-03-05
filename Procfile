@@ -1,1 +1,1 @@
-web:ggunicorn
+web: gunicorn
