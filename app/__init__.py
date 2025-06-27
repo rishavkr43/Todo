@@ -10,10 +10,10 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] ='tech-to-evolve'
-    app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///todo.db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATION'] =False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/todo.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 🔁 note the "S" at the end
 
-    db.__init__(app)
+    db.init_app(app)  # ✅ Preferred over db.__init__(app)
     from app.routes.auth import auth_bp
     from app.routes.tasks import tasks_bp
     app.register_blueprint(auth_bp)  
